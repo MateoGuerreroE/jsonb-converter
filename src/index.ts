@@ -1,52 +1,13 @@
 import converter from "./converter.js";
+// @ts-ignore
 import fs from 'fs';
 
+// Replace here with the full JSON array.
+// NOTE: Nested quotes (\") are not supported yet, you can replace them with a text editor.
+// Only character that will be replaced is ' for `.
+const result = `[{}]`
 
-const result = `[  
-    {
-      "title": "Means of Ascent",
-      "authors": ["Robert A. Caro", "Michel Peterson"],
-      "publication_year": 1990,
-      "id": "9997",
-      "average_rating": 4.25,
-      "image_url": "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png",
-      "ratings_count": 12582,
-      "category": "Short stories"
-    },
-    {
-      "title": "The Mauritius Command",
-      "authors": ["Patrick O'Brian"],
-      "publication_year": 1977,
-      "id": "9998",
-      "average_rating": 4.35,
-      "image_url": "https://images.gr-assets.com/books/1455373531m/77431.jpg",
-      "ratings_count": 9421,
-      "category": "Humor"
-    },
-    {
-      "title": "Cinderella Ate My Daughter: Dispatches from the Frontlines of the New Girlie-Girl Culture",
-      "authors": ["Peggy Orenstein"],
-      "publication_year": 2011,
-      "id": "9999",
-      "average_rating": 3.65,
-      "image_url": "https://images.gr-assets.com/books/1279214118m/8565083.jpg",
-      "ratings_count": 11279,
-      "category": "Art"
-    },
-    {
-      "title": "The First World War",
-      "authors": ["John Keegan"],
-      "publication_year": 1998,
-      "id": "10000",
-      "average_rating": 4,
-      "image_url": "https://images.gr-assets.com/books/1403194704m/8914.jpg",
-      "ratings_count": 9162,
-      "category": "Children's literature"
-    }
-  ]
-`
-
-const conv = new converter(result, 'test.demo__books');
+const conv = new converter(result, 'test.datagrid__book');
 const output = conv.createQuery();
 
 fs.writeFile('output.txt', output, (err) => {
