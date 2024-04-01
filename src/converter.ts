@@ -26,7 +26,7 @@ export default class converter {
                 else if (typeof element === 'object') {
                     if (Array.isArray(element)) {
                         if (element.length > 1) {
-                            const arrayOfInsertions = element.map(item => `jsonb_insert('[]', array['0'], '"${item}"')`)
+                            const arrayOfInsertions = element.map(item => `jsonb_insert('[]', array['0'], '"${item.trim()}"')`)
                             resultingElement = arrayOfInsertions.join(' || ');
                         } else {
                             resultingElement = `jsonb_insert('[]', array['0'], '"${element[0]}"')`
