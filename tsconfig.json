@@ -1,13 +1,3 @@
-// {
-//   "compilerOptions": {
-//     // ... other options
-//     "target": "es2017",
-//     "moduleResolution": "Node",
-//     "esModuleInterop": true,
-//     "resolveJsonModule": true
-//   }
-// }
-
 {
   "compilerOptions": {
     "allowJs": true,

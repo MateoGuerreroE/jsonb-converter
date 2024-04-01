@@ -1,9 +1,10 @@
-import converter from "./converter";
+import converter from "./converter.js";
+import fs from 'fs';
 
 
 const result = `[  
     {
-      "title": "Means of Ascent ",
+      "title": "Means of Ascent",
       "authors": ["Robert A. Caro", "Michel Peterson"],
       "publication_year": 1990,
       "id": "9997",
@@ -46,4 +47,12 @@ const result = `[
 `
 
 const conv = new converter(result, 'test.demo__books');
-console.log(conv.createQuery())
+const output = conv.createQuery();
+
+fs.writeFile('output.txt', output, (err) => {
+    if (err) {
+        console.log('Error writting SQL code into file: ' + err);
+    } else {
+        console.log('SQL generated.')
+    }
+});

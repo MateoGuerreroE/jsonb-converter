@@ -1,0 +1,5 @@
+INSERT INTO test.demo__books (title, authors, publication_year, id, average_rating, image_url, ratings_count, category) VALUES
+ ('Means of Ascent', jsonb_insert('[]', array[0], '"Robert A. Caro"') || jsonb_insert('[]', array[0], '"Michel Peterson"'), '1990', '9997', '4.25', 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png', '12582', 'Short stories'),
+ ('The Mauritius Command', jsonb_insert('[]', array['0'], '"Patrick O'Brian"'), '1977', '9998', '4.35', 'https://images.gr-assets.com/books/1455373531m/77431.jpg', '9421', 'Humor'),
+ ('Cinderella Ate My Daughter: Dispatches from the Frontlines of the New Girlie-Girl Culture', jsonb_insert('[]', array['0'], '"Peggy Orenstein"'), '2011', '9999', '3.65', 'https://images.gr-assets.com/books/1279214118m/8565083.jpg', '11279', 'Art'),
+ ('The First World War', jsonb_insert('[]', array['0'], '"John Keegan"'), '1998', '10000', '4', 'https://images.gr-assets.com/books/1403194704m/8914.jpg', '9162', 'Children's literature')
