@@ -20,28 +20,6 @@ export default class converter {
         return ElementValues.map(element => ` (${element})`).join(',\n')
     }
 
-    private getStringValues(object: any): string {
-        return Object.values(object).map(element => {
-            if (element !== null) {
-                let resultingElement: string;
-                if (typeof element === 'string') resultingElement = `'${element.trim()}'`;
-                else if (typeof element === 'object') {
-                    if (Array.isArray(element)) {
-                        if (element.length > 1) {
-                            const arrayOfInsertions = element.map(item => `jsonb_insert('[]', array['0'], '"${item.trim()}"')`)
-                            resultingElement = arrayOfInsertions.join(' || ');
-                        } else {
-                            resultingElement = `jsonb_insert('[]', array['0'], '"${element[0]}"')`
-                        }
-                    } else resultingElement = `'${element}'`;
-                }
-                else resultingElement = `'${element}'`;
-                return resultingElement;
-            }
-            else return 'null';
-        }).join(', ')
-    }
-
     private createInsertStatement(object: Object): string {
         return Object.values(object).map((element, index) => {
             let resultingElement: string;
